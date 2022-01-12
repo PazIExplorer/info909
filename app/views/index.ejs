@@ -129,6 +129,25 @@
 		xhr.setRequestHeader("Content-type", "application/json; charset=utf-8");
 		xhr.send(JSON.stringify(params))
 	}
+	function power() {
+		var x = document.getElementById('pow1').value
+		var y = document.getElementById('pow2').value
+		var res = document.getElementById('powres')
+		var params = {
+			"num1": x,
+			"num2": y
+		}
+		let xhr = new XMLHttpRequest()
+		xhr.open('POST', '/pow', true)
+		xhr.onreadystatechange = function () {
+			if (xhr.readyState === 4 && xhr.status === 200) {
+				res.innerHTML = xhr.responseText
+			}
+		};
+		xhr.setRequestHeader("Content-type", "application/json; charset=utf-8");
+		xhr.send(JSON.stringify(params))
+	}
+
 </script>
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
